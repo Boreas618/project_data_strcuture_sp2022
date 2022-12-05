@@ -1,10 +1,10 @@
 {
-	"frame": 435520776,
-	"frame_time": 2.96439e-323,
+	"frame": 433,
+	"frame_time": 0.00833333,
 	"joint":
 		{
 			"type": "ROOT",
-			"name": "",
+			"name": "hip",
 			"offset": [76.5323, 59.3615, 165.373],
 			"channels": ["Xposition", "Yposition", "Zposition", "Zrotation", "Xrotation", "Yrotation"],
 			"motion": [
@@ -13,7 +13,7 @@
 			"children": [
 				{
 					"type": "JOINT",
-					"name": "",
+					"name": "abdomen",
 					"offset": [0, 20.6881, -0.73152],
 					"channels": ["Zrotation", "Xrotation", "Yrotation"],
 					"motion": [
@@ -22,7 +22,7 @@
 					"children": [
 						{
 							"type": "JOINT",
-							"name": "",
+							"name": "chest",
 							"offset": [0, 11.7043, -0.48768],
 							"channels": ["Zrotation", "Xrotation", "Yrotation"],
 							"motion": [
@@ -31,7 +31,7 @@
 							"children": [
 								{
 									"type": "JOINT",
-									"name": "",
+									"name": "neck",
 									"offset": [0, 22.1894, -2.19456],
 									"channels": ["Zrotation", "Xrotation", "Yrotation"],
 									"motion": [
@@ -40,7 +40,7 @@
 									"children": [
 										{
 											"type": "JOINT",
-											"name": "",
+											"name": "head",
 											"offset": [-0.24384, 7.07133, 1.2192],
 											"channels": ["Zrotation", "Xrotation", "Yrotation"],
 											"motion": [
@@ -49,8 +49,82 @@
 											"children": [
 												{
 													"type": "JOINT",
-													"name": "",
-													"offset": [1, 0, 0],
+													"name": "leftEye",
+													"offset": [4.14528, 8.04674, 8.04672],
+													"channels": ["Zrotation", "Xrotation", "Yrotation"],
+													"motion": [
+
+													],
+													"children": [
+														{
+															"type": "END",
+															"name": "",
+															"offset": [1, 0, 0],
+															"channels": [],
+															"motion": [
+
+															],
+															"children": [
+
+															]
+														}
+
+													]
+												}
+,
+												{
+													"type": "JOINT",
+													"name": "rightEye",
+													"offset": [-3.6576, 8.04674, 8.04672],
+													"channels": ["Zrotation", "Xrotation", "Yrotation"],
+													"motion": [
+
+													],
+													"children": [
+														{
+															"type": "END",
+															"name": "",
+															"offset": [1, 0, 0],
+															"channels": [],
+															"motion": [
+
+															],
+															"children": [
+
+															]
+														}
+
+													]
+												}
+
+											]
+										}
+
+									]
+								}
+,
+								{
+									"type": "JOINT",
+									"name": "rCollar",
+									"offset": [-2.68224, 19.2634, -4.8768],
+									"channels": ["Zrotation", "Xrotation", "Yrotation"],
+									"motion": [
+
+									],
+									"children": [
+										{
+											"type": "JOINT",
+											"name": "rShldr",
+											"offset": [-8.77824, -1.95073, 1.46304],
+											"channels": ["Zrotation", "Xrotation", "Yrotation"],
+											"motion": [
+
+											],
+											"children": [
+												{
+													"type": "JOINT",
+													"name": "rForeArm",
+													"offset": [-28.1742, -1.7115, 0.48768],
 													"channels": ["Zrotation", "Xrotation", "Yrotation"],
 													"motion": [
 
@@ -58,8 +132,8 @@
 													"children": [
 														{
 															"type": "JOINT",
-															"name": "",
-															"offset": [1, 0, 0],
+															"name": "rHand",
+															"offset": [-22.5879, 0.773209, 7.07136],
 															"channels": ["Zrotation", "Xrotation", "Yrotation"],
 															"motion": [
 
@@ -67,8 +141,8 @@
 															"children": [
 																{
 																	"type": "JOINT",
-																	"name": "",
-																	"offset": [-2.68224, 19.2634, -4.8768],
+																	"name": "rThumb1",
+																	"offset": [-1.2192, -0.487915, 3.41376],
 																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
 																	"motion": [
 
@@ -76,418 +150,170 @@
 																	"children": [
 																		{
 																			"type": "JOINT",
-																			"name": "",
-																			"offset": [-8.77824, -1.95073, 1.46304],
+																			"name": "rThumb2",
+																			"offset": [-3.37035, -0.52449, 3.41376],
 																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
 																			"motion": [
 
 																			],
 																			"children": [
 																				{
-																					"type": "JOINT",
+																					"type": "END",
 																					"name": "",
-																					"offset": [-28.1742, -1.7115, 0.48768],
-																					"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																					"offset": [-1.78271, -1.18214, 1.43049],
+																					"channels": [],
 																					"motion": [
 
 																					],
 																					"children": [
-																						{
-																							"type": "JOINT",
-																							"name": "",
-																							"offset": [-22.5879, 0.773209, 7.07136],
-																							"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																							"motion": [
-
-																							],
-																							"children": [
-																								{
-																									"type": "JOINT",
-																									"name": "",
-																									"offset": [-1.2192, -0.487915, 3.41376],
-																									"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																									"motion": [
-
-																									],
-																									"children": [
-																										{
-																											"type": "JOINT",
-																											"name": "",
-																											"offset": [-1.78271, -1.18214, 1.43049],
-																											"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																											"motion": [
-
-																											],
-																											"children": [
-																												{
-																													"type": "JOINT",
-																													"name": "",
-																													"offset": [-7.75947, 0.938293, 5.60832],
-																													"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																													"motion": [
-
-																													],
-																													"children": [
-																														{
-																															"type": "JOINT",
-																															"name": "",
-																															"offset": [-1.62519, -0.234802, 1.16502],
-																															"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																															"motion": [
-
-																															],
-																															"children": [
-																																{
-																																	"type": "JOINT",
-																																	"name": "",
-																																	"offset": [-8.24714, 1.18213, 3.41376],
-																																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																	"motion": [
-
-																																	],
-																																	"children": [
-																																		{
-																																			"type": "JOINT",
-																																			"name": "",
-																																			"offset": [-2.48547, -0.328903, 0.83742],
-																																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																			"motion": [
-
-																																			],
-																																			"children": [
-																																				{
-																																					"type": "JOINT",
-																																					"name": "",
-																																					"offset": [-8.82822, 0.546677, 1.51678],
-																																					"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																					"motion": [
-
-																																					],
-																																					"children": [
-																																						{
-																																							"type": "JOINT",
-																																							"name": "",
-																																							"offset": [-2.33842, -0.294052, 0.168128],
-																																							"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																							"motion": [
-
-																																							],
-																																							"children": [
-																																								{
-																																									"type": "JOINT",
-																																									"name": "",
-																																									"offset": [-8.27202, -0.0477905, -0.4584],
-																																									"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																									"motion": [
-
-																																									],
-																																									"children": [
-																																										{
-																																											"type": "JOINT",
-																																											"name": "",
-																																											"offset": [-1.69225, -0.51767, -0.607171],
-																																											"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																											"motion": [
-
-																																											],
-																																											"children": [
-																																												{
-																																													"type": "JOINT",
-																																													"name": "",
-																																													"offset": [2.68224, 19.2634, -4.8768],
-																																													"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																													"motion": [
-
-																																													],
-																																													"children": [
-																																														{
-																																															"type": "JOINT",
-																																															"name": "",
-																																															"offset": [8.77824, -1.95073, 1.46304],
-																																															"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																															"motion": [
-
-																																															],
-																																															"children": [
-																																																{
-																																																	"type": "JOINT",
-																																																	"name": "",
-																																																	"offset": [28.1742, -1.7115, 0.48768],
-																																																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																	"motion": [
-
-																																																	],
-																																																	"children": [
-																																																		{
-																																																			"type": "JOINT",
-																																																			"name": "",
-																																																			"offset": [22.5879, 0.773209, 7.07136],
-																																																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																			"motion": [
-
-																																																			],
-																																																			"children": [
-																																																				{
-																																																					"type": "JOINT",
-																																																					"name": "",
-																																																					"offset": [1.2192, -0.487915, 3.41376],
-																																																					"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																					"motion": [
-
-																																																					],
-																																																					"children": [
-																																																						{
-																																																							"type": "JOINT",
-																																																							"name": "",
-																																																							"offset": [1.78271, -1.18214, 1.43049],
-																																																							"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																							"motion": [
-
-																																																							],
-																																																							"children": [
-																																																								{
-																																																									"type": "JOINT",
-																																																									"name": "",
-																																																									"offset": [7.75947, 0.938293, 5.60832],
-																																																									"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																									"motion": [
-
-																																																									],
-																																																									"children": [
-																																																										{
-																																																											"type": "JOINT",
-																																																											"name": "",
-																																																											"offset": [1.62519, -0.234802, 1.16502],
-																																																											"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																											"motion": [
-
-																																																											],
-																																																											"children": [
-																																																												{
-																																																													"type": "JOINT",
-																																																													"name": "",
-																																																													"offset": [8.24714, 1.18213, 3.41376],
-																																																													"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																													"motion": [
-
-																																																													],
-																																																													"children": [
-																																																														{
-																																																															"type": "JOINT",
-																																																															"name": "",
-																																																															"offset": [2.48547, -0.328903, 0.83742],
-																																																															"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																															"motion": [
-
-																																																															],
-																																																															"children": [
-																																																																{
-																																																																	"type": "JOINT",
-																																																																	"name": "",
-																																																																	"offset": [8.82822, 0.546677, 1.51678],
-																																																																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																	"motion": [
-
-																																																																	],
-																																																																	"children": [
-																																																																		{
-																																																																			"type": "JOINT",
-																																																																			"name": "",
-																																																																			"offset": [2.33842, -0.294052, 0.168128],
-																																																																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																			"motion": [
-
-																																																																			],
-																																																																			"children": [
-																																																																				{
-																																																																					"type": "JOINT",
-																																																																					"name": "",
-																																																																					"offset": [8.27202, -0.0477905, -0.4584],
-																																																																					"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																					"motion": [
-
-																																																																					],
-																																																																					"children": [
-																																																																						{
-																																																																							"type": "JOINT",
-																																																																							"name": "",
-																																																																							"offset": [1.69225, -0.51767, -0.607171],
-																																																																							"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																							"motion": [
-
-																																																																							],
-																																																																							"children": [
-																																																																								{
-																																																																									"type": "JOINT",
-																																																																									"name": "",
-																																																																									"offset": [-8.77824, 4.35084, 1.2192],
-																																																																									"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																									"motion": [
-
-																																																																									],
-																																																																									"children": [
-																																																																										{
-																																																																											"type": "JOINT",
-																																																																											"name": "",
-																																																																											"offset": [0, -1.70687, -2.19456],
-																																																																											"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																											"motion": [
-
-																																																																											],
-																																																																											"children": [
-																																																																												{
-																																																																													"type": "JOINT",
-																																																																													"name": "",
-																																																																													"offset": [0, -36.8199, 0.73152],
-																																																																													"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																													"motion": [
-
-																																																																													],
-																																																																													"children": [
-																																																																														{
-																																																																															"type": "JOINT",
-																																																																															"name": "",
-																																																																															"offset": [-1.1221, -3.69964, 12.103],
-																																																																															"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																															"motion": [
-
-																																																																															],
-																																																																															"children": [
-																																																																																{
-																																																																																	"type": "JOINT",
-																																																																																	"name": "",
-																																																																																	"offset": [8.77824, 4.35084, 1.2192],
-																																																																																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																																	"motion": [
-
-																																																																																	],
-																																																																																	"children": [
-																																																																																		{
-																																																																																			"type": "JOINT",
-																																																																																			"name": "",
-																																																																																			"offset": [0, -1.70687, -2.19456],
-																																																																																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																																			"motion": [
-
-																																																																																			],
-																																																																																			"children": [
-																																																																																				{
-																																																																																					"type": "JOINT",
-																																																																																					"name": "",
-																																																																																					"offset": [0, -36.8199, 0.73152],
-																																																																																					"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																																					"motion": [
-
-																																																																																					],
-																																																																																					"children": [
-																																																																																						{
-																																																																																							"type": "JOINT",
-																																																																																							"name": "",
-																																																																																							"offset": [1.1221, -3.69964, 12.103],
-																																																																																							"channels": ["Zrotation", "Xrotation", "Yrotation"],
-																																																																																							"motion": [
-
-																																																																																							],
-																																																																																							"children": [
-
-																																																																																							]
-																																																																																						}
-
-																																																																																					]
-																																																																																				}
-
-																																																																																			]
-																																																																																		}
-
-																																																																																	]
-																																																																																}
-
-																																																																															]
-																																																																														}
-
-																																																																													]
-																																																																												}
-
-																																																																											]
-																																																																										}
-
-																																																																									]
-																																																																								}
-
-																																																																							]
-																																																																						}
-
-																																																																					]
-																																																																				}
-
-																																																																			]
-																																																																		}
-
-																																																																	]
-																																																																}
-
-																																																															]
-																																																														}
-
-																																																													]
-																																																												}
-
-																																																											]
-																																																										}
-
-																																																									]
-																																																								}
-
-																																																							]
-																																																						}
-
-																																																					]
-																																																				}
-
-																																																			]
-																																																		}
-
-																																																	]
-																																																}
-
-																																															]
-																																														}
-
-																																													]
-																																												}
-
-																																											]
-																																										}
-
-																																									]
-																																								}
-
-																																							]
-																																						}
-
-																																					]
-																																				}
-
-																																			]
-																																		}
-
-																																	]
-																																}
-
-																															]
-																														}
-
-																													]
-																												}
-
-																											]
-																										}
-
-																									]
-																								}
-
-																							]
-																						}
+
+																					]
+																				}
+
+																			]
+																		}
+
+																	]
+																}
+,
+																{
+																	"type": "JOINT",
+																	"name": "rIndex1",
+																	"offset": [-7.75947, 0.938293, 5.60832],
+																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																	"motion": [
+
+																	],
+																	"children": [
+																		{
+																			"type": "JOINT",
+																			"name": "rIndex2",
+																			"offset": [-2.54057, -0.884171, 1.56538],
+																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																			"motion": [
+
+																			],
+																			"children": [
+																				{
+																					"type": "END",
+																					"name": "",
+																					"offset": [-1.62519, -0.234802, 1.16502],
+																					"channels": [],
+																					"motion": [
+
+																					],
+																					"children": [
+
+																					]
+																				}
+
+																			]
+																		}
+
+																	]
+																}
+,
+																{
+																	"type": "JOINT",
+																	"name": "rMid1",
+																	"offset": [-8.24714, 1.18213, 3.41376],
+																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																	"motion": [
+
+																	],
+																	"children": [
+																		{
+																			"type": "JOINT",
+																			"name": "rMid2",
+																			"offset": [-3.10165, -0.590103, 1.0647],
+																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																			"motion": [
+
+																			],
+																			"children": [
+																				{
+																					"type": "END",
+																					"name": "",
+																					"offset": [-2.48547, -0.328903, 0.83742],
+																					"channels": [],
+																					"motion": [
+
+																					],
+																					"children": [
+
+																					]
+																				}
+
+																			]
+																		}
+
+																	]
+																}
+,
+																{
+																	"type": "JOINT",
+																	"name": "rRing1",
+																	"offset": [-8.82822, 0.546677, 1.51678],
+																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																	"motion": [
+
+																	],
+																	"children": [
+																		{
+																			"type": "JOINT",
+																			"name": "rRing2",
+																			"offset": [-2.60934, -0.819778, -0.0198488],
+																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																			"motion": [
+
+																			],
+																			"children": [
+																				{
+																					"type": "END",
+																					"name": "",
+																					"offset": [-2.33842, -0.294052, 0.168128],
+																					"channels": [],
+																					"motion": [
+
+																					],
+																					"children": [
+
+																					]
+																				}
+
+																			]
+																		}
+
+																	]
+																}
+,
+																{
+																	"type": "JOINT",
+																	"name": "rPinky1",
+																	"offset": [-8.27202, -0.0477905, -0.4584],
+																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																	"motion": [
+
+																	],
+																	"children": [
+																		{
+																			"type": "JOINT",
+																			"name": "rPinky2",
+																			"offset": [-1.82734, -0.647385, -0.700984],
+																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																			"motion": [
+
+																			],
+																			"children": [
+																				{
+																					"type": "END",
+																					"name": "",
+																					"offset": [-1.69225, -0.51767, -0.607171],
+																					"channels": [],
+																					"motion": [
+
+																					],
+																					"children": [
 
 																					]
 																				}
@@ -500,6 +326,361 @@
 
 															]
 														}
+
+													]
+												}
+
+											]
+										}
+
+									]
+								}
+,
+								{
+									"type": "JOINT",
+									"name": "lCollar",
+									"offset": [2.68224, 19.2634, -4.8768],
+									"channels": ["Zrotation", "Xrotation", "Yrotation"],
+									"motion": [
+
+									],
+									"children": [
+										{
+											"type": "JOINT",
+											"name": "lShldr",
+											"offset": [8.77824, -1.95073, 1.46304],
+											"channels": ["Zrotation", "Xrotation", "Yrotation"],
+											"motion": [
+
+											],
+											"children": [
+												{
+													"type": "JOINT",
+													"name": "lForeArm",
+													"offset": [28.1742, -1.7115, 0.48768],
+													"channels": ["Zrotation", "Xrotation", "Yrotation"],
+													"motion": [
+
+													],
+													"children": [
+														{
+															"type": "JOINT",
+															"name": "lHand",
+															"offset": [22.5879, 0.773209, 7.07136],
+															"channels": ["Zrotation", "Xrotation", "Yrotation"],
+															"motion": [
+
+															],
+															"children": [
+																{
+																	"type": "JOINT",
+																	"name": "lThumb1",
+																	"offset": [1.2192, -0.487915, 3.41376],
+																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																	"motion": [
+
+																	],
+																	"children": [
+																		{
+																			"type": "JOINT",
+																			"name": "lThumb2",
+																			"offset": [3.37035, -0.52449, 3.41376],
+																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																			"motion": [
+
+																			],
+																			"children": [
+																				{
+																					"type": "END",
+																					"name": "",
+																					"offset": [1.78271, -1.18214, 1.43049],
+																					"channels": [],
+																					"motion": [
+
+																					],
+																					"children": [
+
+																					]
+																				}
+
+																			]
+																		}
+
+																	]
+																}
+,
+																{
+																	"type": "JOINT",
+																	"name": "lIndex1",
+																	"offset": [7.75947, 0.938293, 5.60832],
+																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																	"motion": [
+
+																	],
+																	"children": [
+																		{
+																			"type": "JOINT",
+																			"name": "lIndex2",
+																			"offset": [2.54057, -0.884171, 1.56538],
+																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																			"motion": [
+
+																			],
+																			"children": [
+																				{
+																					"type": "END",
+																					"name": "",
+																					"offset": [1.62519, -0.234802, 1.16502],
+																					"channels": [],
+																					"motion": [
+
+																					],
+																					"children": [
+
+																					]
+																				}
+
+																			]
+																		}
+
+																	]
+																}
+,
+																{
+																	"type": "JOINT",
+																	"name": "lMid1",
+																	"offset": [8.24714, 1.18213, 3.41376],
+																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																	"motion": [
+
+																	],
+																	"children": [
+																		{
+																			"type": "JOINT",
+																			"name": "lMid2",
+																			"offset": [3.10165, -0.590103, 1.0647],
+																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																			"motion": [
+
+																			],
+																			"children": [
+																				{
+																					"type": "END",
+																					"name": "",
+																					"offset": [2.48547, -0.328903, 0.83742],
+																					"channels": [],
+																					"motion": [
+
+																					],
+																					"children": [
+
+																					]
+																				}
+
+																			]
+																		}
+
+																	]
+																}
+,
+																{
+																	"type": "JOINT",
+																	"name": "lRing1",
+																	"offset": [8.82822, 0.546677, 1.51678],
+																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																	"motion": [
+
+																	],
+																	"children": [
+																		{
+																			"type": "JOINT",
+																			"name": "lRing2",
+																			"offset": [2.60934, -0.819778, -0.0198488],
+																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																			"motion": [
+
+																			],
+																			"children": [
+																				{
+																					"type": "END",
+																					"name": "",
+																					"offset": [2.33842, -0.294052, 0.168128],
+																					"channels": [],
+																					"motion": [
+
+																					],
+																					"children": [
+
+																					]
+																				}
+
+																			]
+																		}
+
+																	]
+																}
+,
+																{
+																	"type": "JOINT",
+																	"name": "lPinky1",
+																	"offset": [8.27202, -0.0477905, -0.4584],
+																	"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																	"motion": [
+
+																	],
+																	"children": [
+																		{
+																			"type": "JOINT",
+																			"name": "lPinky2",
+																			"offset": [1.82734, -0.647385, -0.700984],
+																			"channels": ["Zrotation", "Xrotation", "Yrotation"],
+																			"motion": [
+
+																			],
+																			"children": [
+																				{
+																					"type": "END",
+																					"name": "",
+																					"offset": [1.69225, -0.51767, -0.607171],
+																					"channels": [],
+																					"motion": [
+
+																					],
+																					"children": [
+
+																					]
+																				}
+
+																			]
+																		}
+
+																	]
+																}
+
+															]
+														}
+
+													]
+												}
+
+											]
+										}
+
+									]
+								}
+
+							]
+						}
+
+					]
+				}
+,
+				{
+					"type": "JOINT",
+					"name": "rButtock",
+					"offset": [-8.77824, 4.35084, 1.2192],
+					"channels": ["Zrotation", "Xrotation", "Yrotation"],
+					"motion": [
+
+					],
+					"children": [
+						{
+							"type": "JOINT",
+							"name": "rThigh",
+							"offset": [0, -1.70687, -2.19456],
+							"channels": ["Zrotation", "Xrotation", "Yrotation"],
+							"motion": [
+
+							],
+							"children": [
+								{
+									"type": "JOINT",
+									"name": "rShin",
+									"offset": [0, -36.8199, 0.73152],
+									"channels": ["Zrotation", "Xrotation", "Yrotation"],
+									"motion": [
+
+									],
+									"children": [
+										{
+											"type": "JOINT",
+											"name": "rFoot",
+											"offset": [0.73152, -45.1104, -5.12064],
+											"channels": ["Zrotation", "Xrotation", "Yrotation"],
+											"motion": [
+
+											],
+											"children": [
+												{
+													"type": "END",
+													"name": "",
+													"offset": [-1.1221, -3.69964, 12.103],
+													"channels": [],
+													"motion": [
+
+													],
+													"children": [
+
+													]
+												}
+
+											]
+										}
+
+									]
+								}
+
+							]
+						}
+
+					]
+				}
+,
+				{
+					"type": "JOINT",
+					"name": "lButtock",
+					"offset": [8.77824, 4.35084, 1.2192],
+					"channels": ["Zrotation", "Xrotation", "Yrotation"],
+					"motion": [
+
+					],
+					"children": [
+						{
+							"type": "JOINT",
+							"name": "lThigh",
+							"offset": [0, -1.70687, -2.19456],
+							"channels": ["Zrotation", "Xrotation", "Yrotation"],
+							"motion": [
+
+							],
+							"children": [
+								{
+									"type": "JOINT",
+									"name": "lShin",
+									"offset": [0, -36.8199, 0.73152],
+									"channels": ["Zrotation", "Xrotation", "Yrotation"],
+									"motion": [
+
+									],
+									"children": [
+										{
+											"type": "JOINT",
+											"name": "lFoot",
+											"offset": [-0.73152, -45.1104, -5.12064],
+											"channels": ["Zrotation", "Xrotation", "Yrotation"],
+											"motion": [
+
+											],
+											"children": [
+												{
+													"type": "END",
+													"name": "",
+													"offset": [1.1221, -3.69964, 12.103],
+													"channels": [],
+													"motion": [
+
+													],
+													"children": [
 
 													]
 												}

@@ -35,8 +35,8 @@ string trim(string line){
     line[pointer_backward] == '\v'){
         pointer_backward--;
     }
-
-    return line.substr(pointer_forward, pointer_backward+1);
+    
+    return line.substr(pointer_forward, pointer_backward-pointer_forward+1);
 }
 
 /// @brief A function fot parsing the offset information
@@ -45,7 +45,7 @@ string trim(string line){
 vector<double> parseOffset(string line){
     int startIndex = line.find_first_of(' ');
     vector<double> offsetFields(3);
-    string info = line.substr(startIndex, line.size());
+    string info = line.substr(startIndex, line.size()-startIndex);
     std::stringstream ss(info);
     ss >> offsetFields[0] >> offsetFields[1] >> offsetFields[2];
     return offsetFields;
@@ -57,7 +57,7 @@ vector<double> parseOffset(string line){
 vector<string> parseChannels(string line){
     int startIndex = line.find_first_of(' ');
     int length = 0;
-    std::stringstream ss(line.substr(startIndex, line.size()));
+    std::stringstream ss(line.substr(startIndex, line.size()-startIndex));
     ss >> length;
     vector<string> channelFields(length);
     for(int i = 0; i < length; i++)
@@ -68,18 +68,15 @@ vector<string> parseChannels(string line){
 /// @brief A function for building the skeleton of the data.
 /// @param root the root node
 /// @param path the file path
-void buildSkeleton(joint& root, char* path){
+void buildSkeleton(joint& root, ifstream& file){
     std::stack<joint*> s;
     joint *p = &root;
     string line;
-    ifstream file(path);
     if(file.is_open()){
-        int i = 0;
         while(std::getline(file, line)){
 
             line = trim(line);
 
-            //IMPORTANT: EVERY line ends with a '\r'
             if(line == "MOTION")
                 break;
 
@@ -90,21 +87,25 @@ void buildSkeleton(joint& root, char* path){
                 s.push(p);
             } else if (line == "}"){
                 s.pop();
+                if(!s.empty())
+                    p = s.top();
             } else {
                 if(line.substr(0,line.find_first_of(' ')) == "ROOT"){
                     p->joint_type = "ROOT";
+                    p->name = line.substr(line.find_first_of(' ')+1, line.size()-line.find_first_of(' ')-1);
                 }
                 if(line.substr(0,line.find_first_of(' ')) == "JOINT"){
                     joint* childJoint = new joint();
                     p->children.push_back(childJoint);
                     p = childJoint;
                     childJoint->joint_type = "JOINT";
+                    childJoint->name = line.substr(line.find_first_of(' ')+1, line.size()-line.find_first_of(' ')-1);
                 }
-                if(line.substr(0,line.find_first_of(' ')) == "END"){
+                if(line.substr(0,line.find_first_of(' ')) == "End"){
                     joint* childJoint = new joint();
-                    s.top()->children.push_back(childJoint);
+                    p->children.push_back(childJoint);
                     p = childJoint;
-                    childJoint->joint_type = "END";
+                    p->joint_type = "END";
                 }
                 if(line.substr(0,line.find_first_of(' ')) == "OFFSET"){
                     vector<double> offset = parseOffset(line);
@@ -119,15 +120,28 @@ void buildSkeleton(joint& root, char* path){
             //std::cout<<trim(line)<<std::endl;
 
         }
-        file.close();
     }
+}
+
+void generateMeta(META& meta_data, ifstream& file){
+    string line_frames;
+    string line_frame_time;
+    std::getline(file, line_frames);
+    std::getline(file, line_frame_time);
+
+    std::stringstream ss1(line_frames.substr(line_frames.find_first_of(':')+2, line_frames.size()-line_frames.find_first_of(':')-2));
+    ss1 >> meta_data.frame;
+
+    std::stringstream ss2(line_frame_time.substr(line_frame_time.find_first_of(':')+2, line_frame_time.size()-line_frame_time.find_first_of(':')-2));
+    ss2 >> meta_data.frame_time;
 }
 
 int main(int argc, char** argv) {
     joint root;
     META meta_data;
     ifstream file(argv[1]);
-    buildSkeleton(root, argv[1]);
+    buildSkeleton(root, file);
+    generateMeta(meta_data,file);
     jsonify(root, meta_data);
     file.close();
     return 0;
