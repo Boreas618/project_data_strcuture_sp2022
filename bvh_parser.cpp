@@ -1,5 +1,5 @@
-#include<fstream>
-#include"bvh_parser.h"
+#include <fstream>
+#include "bvh_parser.h"
 #include <iostream>
 #include <string>
 #include <stack>
@@ -7,6 +7,7 @@
 
 // a naive bvh parser
 
+using namespace std;
 using std::ifstream;
 
 /// @brief A helper function for removing whitespace from both sides of the string
@@ -42,11 +43,11 @@ string trim(string line){
 /// @brief A function fot parsing the offset information
 /// @param line the input string
 /// @return a vector(length:3) storing the information
-vector<double> parseOffset(string line){
+vector<double> ParseOffset(const string& line){
     int startIndex = line.find_first_of(' ');
     vector<double> offsetFields(3);
     string info = line.substr(startIndex, line.size()-startIndex);
-    std::stringstream ss(info);
+    stringstream ss(info);
     ss >> offsetFields[0] >> offsetFields[1] >> offsetFields[2];
     return offsetFields;
 }
@@ -57,7 +58,7 @@ vector<double> parseOffset(string line){
 vector<string> parseChannels(string line){
     int startIndex = line.find_first_of(' ');
     int length = 0;
-    std::stringstream ss(line.substr(startIndex, line.size()-startIndex));
+    stringstream ss(line.substr(startIndex, line.size()-startIndex));
     ss >> length;
     vector<string> channelFields(length);
     for(int i = 0; i < length; i++)
@@ -69,11 +70,12 @@ vector<string> parseChannels(string line){
 /// @param root the root node
 /// @param path the file path
 void buildSkeleton(joint& root, ifstream& file){
-    std::stack<joint*> s;
+    stack<joint*> s;
     joint *p = &root;
     string line;
+    string parent_name;
     if(file.is_open()){
-        while(std::getline(file, line)){
+        while(getline(file, line)){
 
             line = trim(line);
 
@@ -93,6 +95,7 @@ void buildSkeleton(joint& root, ifstream& file){
                 if(line.substr(0,line.find_first_of(' ')) == "ROOT"){
                     p->joint_type = "ROOT";
                     p->name = line.substr(line.find_first_of(' ')+1, line.size()-line.find_first_of(' ')-1);
+                    parent_name = p->name;
                 }
                 if(line.substr(0,line.find_first_of(' ')) == "JOINT"){
                     joint* childJoint = new joint();
@@ -100,15 +103,17 @@ void buildSkeleton(joint& root, ifstream& file){
                     p = childJoint;
                     childJoint->joint_type = "JOINT";
                     childJoint->name = line.substr(line.find_first_of(' ')+1, line.size()-line.find_first_of(' ')-1);
+                    parent_name = childJoint->name;
                 }
                 if(line.substr(0,line.find_first_of(' ')) == "End"){
                     joint* childJoint = new joint();
                     p->children.push_back(childJoint);
                     p = childJoint;
                     p->joint_type = "END";
+                    p->name = parent_name + "_End";
                 }
                 if(line.substr(0,line.find_first_of(' ')) == "OFFSET"){
-                    vector<double> offset = parseOffset(line);
+                    vector<double> offset = ParseOffset(line);
                     p->offset_x = offset[0];
                     p->offset_y = offset[1];
                     p->offset_z = offset[2];
@@ -117,23 +122,51 @@ void buildSkeleton(joint& root, ifstream& file){
                     p->channels = parseChannels(line);
                 }
             }
-            //std::cout<<trim(line)<<std::endl;
 
         }
     }
 }
 
+/// @brief A function for generating the meta data
+/// @param meta_data 
+/// @param file 
 void generateMeta(META& meta_data, ifstream& file){
     string line_frames;
     string line_frame_time;
-    std::getline(file, line_frames);
-    std::getline(file, line_frame_time);
+    getline(file, line_frames);
+    getline(file, line_frame_time);
 
-    std::stringstream ss1(line_frames.substr(line_frames.find_first_of(':')+2, line_frames.size()-line_frames.find_first_of(':')-2));
+    stringstream ss1(line_frames.substr(line_frames.find_first_of(':')+2, line_frames.size()-line_frames.find_first_of(':')-2));
     ss1 >> meta_data.frame;
 
-    std::stringstream ss2(line_frame_time.substr(line_frame_time.find_first_of(':')+2, line_frame_time.size()-line_frame_time.find_first_of(':')-2));
+    stringstream ss2(line_frame_time.substr(line_frame_time.find_first_of(':')+2, line_frame_time.size()-line_frame_time.find_first_of(':')-2));
     ss2 >> meta_data.frame_time;
+}
+
+void loadMotions(ifstream& file, joint& root, int frame){
+    string line;
+    joint *p;
+    stack<joint*> s;
+    while(getline(file, line)){
+        p = &root;
+        s.push(p);
+
+        stringstream ss(line);
+        while(!s.empty()){
+            p = s.top();
+            s.pop();
+
+            for(int i = p->children.size()-1; i >=0; i--){
+                s.push(p->children[i]);
+            }
+
+            vector<double> singleFrameChannelData(p->channels.size());
+            for(int i = 0; i < p->channels.size(); i++)
+                ss >> singleFrameChannelData[i];
+
+            p->motion.push_back(singleFrameChannelData);
+        }
+    }
 }
 
 int main(int argc, char** argv) {
@@ -142,6 +175,7 @@ int main(int argc, char** argv) {
     ifstream file(argv[1]);
     buildSkeleton(root, file);
     generateMeta(meta_data,file);
+    loadMotions(file, root, meta_data.frame);
     jsonify(root, meta_data);
     file.close();
     return 0;
