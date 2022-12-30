@@ -98,7 +98,7 @@ void GenerateMeta(META &meta_data, ifstream &file)
 
 // Load the motion data
 // Tarverse the skeleton that has constrcuted earlier. Load the single-frame data in the form of a vector.
-void LoadMotions(ifstream &file, joint &root, int frame)
+void LoadMotions(ifstream &file, joint &root)
 {
     string line;
     joint *p;
@@ -134,12 +134,12 @@ int main(int argc, char **argv)
     ifstream file(argv[1]);
 
     if (!file.is_open())
-        cout << "Error: failed to open" << argv[1] << endl;
+        cout << "Error: failed to open: " << argv[1] << endl;
     else
         BuildSkeleton(root, file);
 
     GenerateMeta(meta_data, file);
-    LoadMotions(file, root, meta_data.frame);
+    LoadMotions(file, root);
     jsonify(root, meta_data);
     file.close();
     return 0;
